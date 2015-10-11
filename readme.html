@@ -1,0 +1,74 @@
+<!doctype html>
+<html dir="rtl">
+<head>
+<title>سفر اسب - حرکت مهره‌ی اسب روی تمام نقاط شطرنج</title>
+<meta charset="utf-8">
+<meta name="author" content="ATofighi">
+<style>
+	html {
+		direction: rtl;
+	}
+	
+	body {
+		text-align: right;
+		font-family: Tahoma;
+		font-size: 14px;
+		background: #f0f2f1;
+		line-height: 1.6;
+	}
+	
+	h1 {
+		font-weight: normal;
+		font-size: 32px;
+		text-align: center;
+		margin: 0;
+	}
+
+	#container {
+		margin: 0 auto;
+		width: 95%;
+		max-width: 700px;
+		background: #fff;
+		border-radius: 5px;
+		padding: 20px;
+		border: 1px solid #d2d2d2;
+		box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
+		box-sizing: border-box;
+	}
+	
+	h2 {
+		margin: 4px 0;
+	}
+	
+	.math {
+		direction: ltr;
+		display: inline-block;
+		font-style: italic;
+		font-family: Time new roman;
+	}
+	
+	#copyright {
+		text-align: center;
+		font-size: 11px;
+		direction: ltr;
+	}
+</style>
+</head>
+<body>
+<h1>سفر اسب</h1>
+<div id="container">
+	<h2>این چیست؟</h2>
+	در این پروژه، اسب از یک نقطه از صفحه‌ی شطرنج شروع به حرکت می‌کند، همه‌ی خانه‌های شطرنج را طی کرده و هیچ خانه‌ای را بیش از یک‌بار طی نمی‌کند.
+	<h2>راه حل</h2>
+	<span class="math">ways(i, j)</span> را تعداد خانه‌هایی که از آن خانه می‌توان به خانه‌ی <span class="math">i, j</span> رفت تعریف می‌کنیم. (تعداد خانه‌هایی که هنوز به آنها نرفته ایم.)
+	، در هر مرحله از بین خانه‌هایی که مجاز به رفتن در آنها هستیم، به  صورت حریصانه به خانه‌ای که کمترین <span class="math">ways(i, j)</span> را دارد می‌رویم.
+	<br>
+	این الگوریتم برای ربع اول صفحه‌ی شطرنج درست است. می‌دانیم اگه روشی برای حل کردن نقطه‌ای در نیمه‌ی سمت راست داشته باشیم، می‌توانیم همه‌ی حرکت‌ها رو بر اساس این نیمه قرینه کرده و روشی برای حل کردن در نیمه‌ی سمت چپ بسازیم، من هم از همین شیوه برای حل ۳ ربع دیگر شطرنج استفاده کردم.
+	<br><br>
+	این راه حل از نظر زمانی در <span class="math">O(n)</span> مسئله را حل می‌کند. منظور از <span class="math">n</span> تعداد خانه‌های صفحه که در اینجا ۶۴ است، می‌باشد.
+</div>
+<div id="copyright">
+	&copy; by AliReza_Tofighi - <a href="https://github.com/ATofighi/knightsTour" target="_blank">[Github]</a>
+</div>
+</body>
+</html>
