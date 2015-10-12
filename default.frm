@@ -1057,18 +1057,35 @@ Function runMove(X, Y)
         moves(moveCount1) = xyToNum(X, Y)
         moveCount1 = moveCount1 + 1
         mark(X, Y) = moveCount1
-        nextX = -1
-        nextY = -1
         nextWays = -1
-        xp = X + 2: yp = Y + 1: If isOk(xp, yp) Then ways(xp, yp) = ways(xp, yp) - 1: If ways(xp, yp) < nextWays Or nextWays = -1 Then nextWays = ways(xp, yp): nextX = xp: nextY = yp
-        xp = X + 2: yp = Y - 1: If isOk(xp, yp) Then ways(xp, yp) = ways(xp, yp) - 1: If ways(xp, yp) < nextWays Or nextWays = -1 Then nextWays = ways(xp, yp): nextX = xp: nextY = yp
-        xp = X - 2: yp = Y + 1: If isOk(xp, yp) Then ways(xp, yp) = ways(xp, yp) - 1: If ways(xp, yp) < nextWays Or nextWays = -1 Then nextWays = ways(xp, yp): nextX = xp: nextY = yp
-        xp = X - 2: yp = Y - 1: If isOk(xp, yp) Then ways(xp, yp) = ways(xp, yp) - 1: If ways(xp, yp) < nextWays Or nextWays = -1 Then nextWays = ways(xp, yp): nextX = xp: nextY = yp
-        xp = X + 1: yp = Y + 2: If isOk(xp, yp) Then ways(xp, yp) = ways(xp, yp) - 1: If ways(xp, yp) < nextWays Or nextWays = -1 Then nextWays = ways(xp, yp): nextX = xp: nextY = yp
-        xp = X + 1: yp = Y - 2: If isOk(xp, yp) Then ways(xp, yp) = ways(xp, yp) - 1: If ways(xp, yp) < nextWays Or nextWays = -1 Then nextWays = ways(xp, yp): nextX = xp: nextY = yp
-        xp = X - 1: yp = Y + 2: If isOk(xp, yp) Then ways(xp, yp) = ways(xp, yp) - 1: If ways(xp, yp) < nextWays Or nextWays = -1 Then nextWays = ways(xp, yp): nextX = xp: nextY = yp
-        xp = X - 1: yp = Y - 2: If isOk(xp, yp) Then ways(xp, yp) = ways(xp, yp) - 1: If ways(xp, yp) < nextWays Or nextWays = -1 Then nextWays = ways(xp, yp): nextX = xp: nextY = yp
-        r = runMove(nextX, nextY)
+        xp = X + 2: yp = Y + 1: If isOk(xp, yp) Then ways(xp, yp) = ways(xp, yp) - 1: If ways(xp, yp) < nextWays Or nextWays = -1 Then nextWays = ways(xp, yp)
+        xp = X + 2: yp = Y - 1: If isOk(xp, yp) Then ways(xp, yp) = ways(xp, yp) - 1: If ways(xp, yp) < nextWays Or nextWays = -1 Then nextWays = ways(xp, yp)
+        xp = X - 2: yp = Y + 1: If isOk(xp, yp) Then ways(xp, yp) = ways(xp, yp) - 1: If ways(xp, yp) < nextWays Or nextWays = -1 Then nextWays = ways(xp, yp)
+        xp = X - 2: yp = Y - 1: If isOk(xp, yp) Then ways(xp, yp) = ways(xp, yp) - 1: If ways(xp, yp) < nextWays Or nextWays = -1 Then nextWays = ways(xp, yp)
+        xp = X + 1: yp = Y + 2: If isOk(xp, yp) Then ways(xp, yp) = ways(xp, yp) - 1: If ways(xp, yp) < nextWays Or nextWays = -1 Then nextWays = ways(xp, yp)
+        xp = X + 1: yp = Y - 2: If isOk(xp, yp) Then ways(xp, yp) = ways(xp, yp) - 1: If ways(xp, yp) < nextWays Or nextWays = -1 Then nextWays = ways(xp, yp)
+        xp = X - 1: yp = Y + 2: If isOk(xp, yp) Then ways(xp, yp) = ways(xp, yp) - 1: If ways(xp, yp) < nextWays Or nextWays = -1 Then nextWays = ways(xp, yp)
+        xp = X - 1: yp = Y - 2: If isOk(xp, yp) Then ways(xp, yp) = ways(xp, yp) - 1: If ways(xp, yp) < nextWays Or nextWays = -1 Then nextWays = ways(xp, yp)
+        
+        r = False
+        xp = X + 2: yp = Y + 1: If r = False And isOk(xp, yp) Then If ways(xp, yp) = nextWays Then r = runMove(xp, yp)
+        xp = X + 2: yp = Y - 1: If r = False And isOk(xp, yp) Then If ways(xp, yp) = nextWays Then r = runMove(xp, yp)
+        xp = X - 2: yp = Y + 1: If r = False And isOk(xp, yp) Then If ways(xp, yp) = nextWays Then r = runMove(xp, yp)
+        xp = X - 2: yp = Y - 1: If r = False And isOk(xp, yp) Then If ways(xp, yp) = nextWays Then r = runMove(xp, yp)
+        xp = X + 1: yp = Y + 2: If r = False And isOk(xp, yp) Then If ways(xp, yp) = nextWays Then r = runMove(xp, yp)
+        xp = X + 1: yp = Y - 2: If r = False And isOk(xp, yp) Then If ways(xp, yp) = nextWays Then r = runMove(xp, yp)
+        xp = X - 1: yp = Y + 2: If r = False And isOk(xp, yp) Then If ways(xp, yp) = nextWays Then r = runMove(xp, yp)
+        xp = X - 1: yp = Y - 2: If r = False And isOk(xp, yp) Then If ways(xp, yp) = nextWays Then r = runMove(xp, yp)
+        
+        If moveCount1 = 64 Then
+            r = True
+        End If
+        
+        If r = False Then
+            moveCount1 = moveCount1 - 1
+            moves(moveCount1) = 0
+            mark(X, Y) = 0
+        End If
         runMove = r
     End If
 End Function
@@ -1121,16 +1138,16 @@ Private Sub Cell_click(cellNumber As Integer)
         Y = numToY(cellNumber)
         newX = X
         newY = Y
-        If X < (chessSize / 2) Then newX = (chessSize - 1) - X
-        If Y < (chessSize / 2) Then newY = (chessSize - 1) - Y
+        'If X < (chessSize / 2) Then newX = (chessSize - 1) - X
+'        If Y < (chessSize / 2) Then newY = (chessSize - 1) - Y
         chessLoading.Visible = True
         r = runMove(newX, newY)
         For i = 0 To (chessSize * chessSize - 1)
             cell(i).MousePointer = 0
             theX = numToX(moves(i))
             theY = numToY(moves(i))
-            If X < 4 Then theX = (chessSize - 1) - theX
-            If Y < 4 Then theY = (chessSize - 1) - theY
+            'If X < 4 Then theX = (chessSize - 1) - theX
+'            If Y < 4 Then theY = (chessSize - 1) - theY
             moves(i) = xyToNum(theX, theY)
         Next i
         moveTimer.Enabled = True
